@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.text.format.DateFormat;
 
 public class CrimeFragment extends Fragment {
 
@@ -47,7 +48,9 @@ public class CrimeFragment extends Fragment {
 		});
 
 		mDateButton = (Button)v.findViewById(R.id.crime_date);
-		mDateButton.setText(mCrime.getDate().toString());
+		//mDateButton.setText(mCrime.getDate().toString());
+		DateFormat df = new DateFormat();
+		mDateButton.setText(df.format("EEEE, LLLL dd, yyyy", mCrime.getDate()));
 		mDateButton.setEnabled(false);
 
 		mSolvedCheckBox = (CheckBox)v.findViewById(R.id.crime_solved);
